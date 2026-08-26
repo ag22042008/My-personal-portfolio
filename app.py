@@ -86,7 +86,78 @@ CONFIG = {
             ),
             "impact": "Auto-scores generated reports out of 10",
             "tags": ["LangChain", "LangGraph", "Tavily", "Mistral AI", "BeautifulSoup"],
-            "github": "https://github.com/ag22042008/multi-agent-research-pipeline",
+            "github": "https://github.com/ag22042008/multi-agent-resarch-pipeline",
+            "demo": "",
+        },
+        {
+            "title": "Python ML Assistant",
+            "period": "2025",
+            "summary": (
+                "A dataset-aware coding assistant: upload a CSV/Excel file and it profiles "
+                "the shape, dtypes, and missing values, then a dual-chain LangChain LCEL "
+                "pipeline generates commented Python/ML code tailored to your real columns "
+                "and, in parallel, a plain-language explanation of what the code does — all "
+                "from a single query, in a chat-style Streamlit UI."
+            ),
+            "impact": "Code + explanation from one query",
+            "tags": ["LangChain", "Mistral AI", "Streamlit", "Pandas"],
+            "github": "https://github.com/ag22042008/Ml-Ai-Helpful-Assistant",
+            "demo": "",
+        },
+        {
+            "title": "City Assistant",
+            "period": "2025",
+            "summary": (
+                "A LangChain/LangGraph agent answering weather, AQI, and local news "
+                "questions for any city through a Streamlit chat UI, with human-in-the-loop "
+                "approval required before every tool call using LangGraph's interrupt/resume "
+                "support, plus per-session conversation memory via MemorySaver."
+            ),
+            "impact": "Human approval gates every tool call",
+            "tags": ["LangChain", "LangGraph", "Streamlit", "Tavily"],
+            "github": "https://github.com/ag22042008/CITY-AGENT-ASSISTANT-TOOL-WITH-CREATE-AGENT-FUNCTION",
+            "demo": "",
+        },
+        {
+            "title": "CourseMate-AI",
+            "period": "2025",
+            "summary": (
+                "A retrieval-augmented PDF chatbot that answers questions grounded only in "
+                "an uploaded document: chunks and embeds the text with Mistral, stores the "
+                "vectors in Chroma, retrieves with MMR search for a balance of relevance and "
+                "diversity, and shows exactly which passages were used for every answer."
+            ),
+            "impact": "Answers grounded only in the source PDF",
+            "tags": ["RAG", "ChromaDB", "Mistral AI", "Streamlit"],
+            "github": "https://github.com/ag22042008/Course-mate-AI",
+            "demo": "",
+        },
+        {
+            "title": "AI Financial Advisor",
+            "period": "2025",
+            "summary": (
+                "A RAG-based investment analyzer: upload annual reports or 10-K filings and "
+                "it retrieves the relevant sections via Mistral embeddings and Chroma, then "
+                "returns document-grounded analysis of revenue, profitability, debt, and "
+                "cash flow with a Buy/Hold/Sell recommendation and page-level citations."
+            ),
+            "impact": "Cites the source page for every claim",
+            "tags": ["RAG", "ChromaDB", "Mistral AI", "Streamlit"],
+            "github": "https://github.com/ag22042008/financial-web-analyzer",
+            "demo": "",
+        },
+        {
+            "title": "MinuteMind",
+            "period": "2025",
+            "summary": (
+                "Turns a meeting recording into a full digest: Whisper transcription, "
+                "map-reduce summarization so long meetings never hit token limits, "
+                "extracted action items/decisions/open questions, and a RAG chatbot that "
+                "answers follow-up questions about what was actually discussed."
+            ),
+            "impact": "Map-reduce summarization avoids token limits",
+            "tags": ["LangChain", "Groq Whisper", "RAG", "Streamlit"],
+            "github": "https://github.com/ag22042008/Minute_Mind",
             "demo": "",
         },
     ],
@@ -122,16 +193,17 @@ CONFIG = {
     ],
 }
 
-# Viridis-inspired palette — a small nod to the default matplotlib colormap
+# Viridis-inspired palette, adapted for a dark theme
 COLORS = {
-    "bg": "#FCFBFF",
-    "ink": "#1B1730",
-    "muted": "#6B678A",
-    "accent_1": "#440154",  # deep violet
-    "accent_2": "#31688E",  # blue
-    "accent_3": "#35B779",  # green
+    "bg": "#120E1F",
+    "surface": "#1C1730",
+    "ink": "#EDEAF8",
+    "muted": "#A79FC7",
+    "accent_1": "#C4A7FF",  # lightened violet
+    "accent_2": "#5FD4F0",  # lightened blue
+    "accent_3": "#4ADE80",  # lightened green
     "accent_4": "#FDE725",  # yellow
-    "card_border": "#E7E3F5",
+    "card_border": "rgba(196,167,255,0.20)",
 }
 
 st.set_page_config(
@@ -150,6 +222,7 @@ st.markdown(f"""
 
 :root {{
     --bg: {COLORS['bg']};
+    --surface: {COLORS['surface']};
     --ink: {COLORS['ink']};
     --muted: {COLORS['muted']};
     --a1: {COLORS['accent_1']};
@@ -167,8 +240,8 @@ html, body, [class*="css"] {{
 .stApp {{
     background-color: var(--bg);
     background-image:
-        linear-gradient(rgba(75,46,131,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(75,46,131,0.035) 1px, transparent 1px);
+        linear-gradient(rgba(196,167,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(196,167,255,0.05) 1px, transparent 1px);
     background-size: 34px 34px;
 }}
 
@@ -241,14 +314,14 @@ h1, h2, h3, h4 {{
     border-radius: 8px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.82rem;
-    font-weight: 500;
-    background: var(--ink);
-    color: #fff !important;
+    font-weight: 600;
+    background: linear-gradient(120deg, var(--a1), var(--a2));
+    color: var(--bg) !important;
     text-decoration: none !important;
-    transition: transform .15s ease, background .15s ease;
+    transition: transform .15s ease, filter .15s ease;
 }}
 .link-chip:hover {{
-    background: var(--a1);
+    filter: brightness(1.12);
     transform: translateY(-2px);
 }}
 
@@ -258,14 +331,14 @@ h1, h2, h3, h4 {{
     border-radius: 10px;
     padding: 20px 22px;
     margin-bottom: 18px;
-    background: #ffffff;
+    background: var(--surface);
     color: var(--ink);
-    box-shadow: 0 2px 14px rgba(75,46,131,0.05);
+    box-shadow: 0 2px 14px rgba(0,0,0,0.25);
     transition: transform .15s ease, box-shadow .15s ease;
 }}
 .notebook-cell:hover {{
     transform: translateY(-3px);
-    box-shadow: 0 10px 26px rgba(75,46,131,0.1);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.4);
 }}
 
 .cell-prompt {{
@@ -303,7 +376,7 @@ h1, h2, h3, h4 {{
     height: 11px;
     border-radius: 50%;
     background: var(--a3);
-    border: 2px solid #fff;
+    border: 2px solid var(--bg);
 }}
 
 .stTabs [data-baseweb="tab-list"] {{
@@ -327,7 +400,7 @@ h1, h2, h3, h4 {{
 }}
 .stButton>button:hover {{
     background: var(--a1);
-    color: white;
+    color: var(--bg);
     border-color: var(--a1);
 }}
 
@@ -345,7 +418,8 @@ h1, h2, h3, h4 {{
 label, .stTextInput label, .stTextArea label {{ color: var(--ink) !important; }}
 .stTextInput input, .stTextArea textarea {{
     color: var(--ink) !important;
-    background: #ffffff !important;
+    background: var(--surface) !important;
+    border-color: var(--border) !important;
 }}
 
 </style>
@@ -379,8 +453,8 @@ def hero_chart():
         margin=dict(l=10, r=10, t=10, b=10),
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
-        xaxis=dict(title="epoch", gridcolor="rgba(75,46,131,0.08)", zeroline=False),
-        yaxis=dict(title="val_accuracy", gridcolor="rgba(75,46,131,0.08)", zeroline=False, range=[0, 1]),
+        xaxis=dict(title="epoch", gridcolor="rgba(196,167,255,0.15)", zeroline=False),
+        yaxis=dict(title="val_accuracy", gridcolor="rgba(196,167,255,0.15)", zeroline=False, range=[0, 1]),
         font=dict(family="JetBrains Mono", size=11, color=COLORS["muted"]),
     )
     return fig
@@ -447,6 +521,12 @@ with tab_skills:
 
 with tab_projects:
     st.markdown('<div class="eyebrow">In [4]: projects()</div>', unsafe_allow_html=True)
+    st.markdown(
+        "<p style='color:var(--muted); font-size:0.88rem; margin-top:-4px;'>"
+        "CourseMate-AI and MinuteMind also live here as standalone repos — earlier "
+        "builds of the consoles now folded into the Unified AI Student Assistant.</p>",
+        unsafe_allow_html=True,
+    )
     cols = st.columns(2, gap="medium")
     for i, proj in enumerate(CONFIG["projects"]):
         with cols[i % 2]:
@@ -457,7 +537,7 @@ with tab_projects:
                 links += f'<a class="link-chip" href="{proj["demo"]}" target="_blank">Demo ↗</a>'
             st.markdown(f"""
             <div class="notebook-cell">
-                <div class="cell-prompt">In [{i + 5}]: load_project("{proj['title']}")</div>
+                <div class="cell-prompt">In [{i + 4}]: load_project("{proj['title']}")</div>
                 <h4 style="margin:0 0 6px 0;">{proj['title']}
                     <span style="color:var(--muted); font-weight:400; font-size:0.85rem;"> · {proj['period']}</span>
                 </h4>
@@ -469,7 +549,7 @@ with tab_projects:
             """, unsafe_allow_html=True)
 
 with tab_experience:
-    st.markdown('<div class="eyebrow">In [9]: experience()</div>', unsafe_allow_html=True)
+    st.markdown('<div class="eyebrow">In [11]: experience()</div>', unsafe_allow_html=True)
     for exp in CONFIG["experience"]:
         bullets_html = "".join(f"<li style='margin-bottom:4px;'>{b}</li>" for b in exp["bullets"])
         st.markdown(f"""
@@ -486,7 +566,7 @@ with tab_experience:
         st.markdown(f"**{ed['degree']}** — {ed['school']} ({ed['period']})")
 
 with tab_certs:
-    st.markdown('<div class="eyebrow">In [10]: certifications()</div>', unsafe_allow_html=True)
+    st.markdown('<div class="eyebrow">In [12]: certifications()</div>', unsafe_allow_html=True)
     cert_cols = st.columns(len(CONFIG["certifications"]))
     for col, cert in zip(cert_cols, CONFIG["certifications"]):
         with col:
