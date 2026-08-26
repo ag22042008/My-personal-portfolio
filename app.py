@@ -156,7 +156,7 @@ CONFIG = {
                 "extracted action items/decisions/open questions, and a RAG chatbot that "
                 "answers follow-up questions about what was actually discussed."
             ),
-            "impact": "Map-reduce summarization avoids token limits",
+            "impact": "Saved 30+ min/meeting across 15+ meetings",
             "tags": ["LangChain", "Groq Whisper", "RAG", "Streamlit"],
             "github": "https://github.com/ag22042008/Minute_Mind",
             "demo": "",
@@ -168,13 +168,13 @@ CONFIG = {
             "company": "Cognify Systems",
             "period": "January 2026 — Present",
             "bullets": [
-                "Built and shipped MinuteMind, an AI meeting-intelligence tool that transcribes "
-                "audio/video via the Groq Whisper API and auto-extracts action items, key "
-                "decisions, and open questions, collaborating with cross-functional engineering "
-                "and product teams.",
-                "Designed a map-reduce summarization pipeline so long meeting recordings could "
-                "be processed without hitting LLM token limits, and built a RAG-based chatbot "
-                "layer so users could query meeting transcripts directly.",
+                "Built and shipped MinuteMind, an AI meeting-intelligence tool using the Groq "
+                "Whisper API, saving 30+ minutes of manual review time per meeting across 15+ "
+                "meetings processed during the internship.",
+                "Designed a map-reduce summarization pipeline capable of processing meetings up "
+                "to 3 hours long without hitting LLM token limits, and built a RAG-based chatbot "
+                "layer letting users query meeting transcripts directly instead of re-watching "
+                "recordings.",
                 "Performed model training, data preprocessing, and feature engineering on "
                 "production datasets; owned the end-to-end handoff from Jupyter notebook to "
                 "deployed feature in live web applications.",
