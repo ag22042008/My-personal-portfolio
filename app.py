@@ -206,6 +206,7 @@ h1, h2, h3, h4 {{
     font-weight: 700;
     line-height: 1.05;
     margin-bottom: 0.3rem;
+    color: var(--ink) !important;
 }}
 
 .hero-tagline {{
@@ -258,6 +259,7 @@ h1, h2, h3, h4 {{
     padding: 20px 22px;
     margin-bottom: 18px;
     background: #ffffff;
+    color: var(--ink);
     box-shadow: 0 2px 14px rgba(75,46,131,0.05);
     transition: transform .15s ease, box-shadow .15s ease;
 }}
@@ -290,6 +292,7 @@ h1, h2, h3, h4 {{
     padding-left: 20px;
     margin-bottom: 26px;
     position: relative;
+    color: var(--ink);
 }}
 .timeline-item::before {{
     content: '';
@@ -309,6 +312,7 @@ h1, h2, h3, h4 {{
 .stTabs [data-baseweb="tab"] {{
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.85rem;
+    color: var(--muted) !important;
 }}
 .stTabs [aria-selected="true"] {{
     color: var(--a1) !important;
@@ -326,6 +330,24 @@ h1, h2, h3, h4 {{
     color: white;
     border-color: var(--a1);
 }}
+
+/* --- Hard overrides so nothing can silently inherit an invisible color ---
+   (this is what broke: some elements relied on inherited color, which a
+   viewer's OS/browser dark mode was allowed to override to near-white) --- */
+[data-testid="stMarkdownContainer"],
+[data-testid="stMarkdownContainer"] p,
+[data-testid="stMarkdownContainer"] li,
+[data-testid="stMarkdownContainer"] strong {{
+    color: var(--ink) !important;
+}}
+[data-testid="stMetricValue"] {{ color: var(--ink) !important; }}
+[data-testid="stMetricLabel"] {{ color: var(--muted) !important; }}
+label, .stTextInput label, .stTextArea label {{ color: var(--ink) !important; }}
+.stTextInput input, .stTextArea textarea {{
+    color: var(--ink) !important;
+    background: #ffffff !important;
+}}
+
 </style>
 """, unsafe_allow_html=True)
 
