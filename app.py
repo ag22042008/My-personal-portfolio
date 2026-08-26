@@ -13,9 +13,9 @@ HOW TO CUSTOMIZE
     skills, projects, experience, education. Edit the values
     and save; Streamlit hot-reloads automatically.
 
-    Want a résumé download button? Drop a file named
-    "resume.pdf" next to this script and uncomment the
-    block marked "RESUME DOWNLOAD" in the hero section below.
+    Résumé download button is wired up via CONFIG["resume_url"]
+    (a Google Drive direct-download link) — see the hero and
+    contact sections below.
 =============================================================
 """
 
@@ -31,8 +31,9 @@ CONFIG = {
     "name": "Aditya Gupta",
     "role": "Machine Learning Developer · Agentic AI & NLP",
     "location": "Noida, India",
-    "email": "connect2adityagupta@gmail.com",
+    "email": "coonect2adityagupta@gmail.com",
     "phone": "+91 7985152841",
+    "resume_url": "https://drive.google.com/uc?export=download&id=1xGEF4Q5dwljepgGmCLXG1fkbF8s5OMh6",
     "tagline": "I build multi-agent AI systems that research, reason, and remember.",
     "bio": (
         "I'm a machine learning developer focused on agentic AI systems and applied "
@@ -433,6 +434,14 @@ def chips(items):
     return " ".join(f'<span class="chip">{item}</span>' for item in items)
 
 
+def resume_button():
+    """Renders a résumé download/view button using CONFIG['resume_url']."""
+    st.markdown(
+        f'<a class="link-chip" href="{CONFIG["resume_url"]}" target="_blank">📄 Download Résumé ↗</a>',
+        unsafe_allow_html=True,
+    )
+
+
 def hero_chart():
     """A small 'training curve' — the portfolio's signature visual moment."""
     epochs = np.arange(1, 31)
@@ -481,11 +490,9 @@ with col1:
     )
     st.markdown(link_html, unsafe_allow_html=True)
 
-    # --- RESUME DOWNLOAD (optional) ---
-    # Uncomment the block below after adding a "resume.pdf" file next to app.py
-    # st.write("")
-    # with open("resume.pdf", "rb") as f:
-    #     st.download_button("Download résumé", f, file_name="resume.pdf", mime="application/pdf")
+    # --- RESUME DOWNLOAD ---
+    st.write("")
+    resume_button()
 
 with col2:
     st.markdown(
@@ -611,6 +618,9 @@ with tab_contact:
         for label, url in CONFIG["links"].items()
     )
     st.markdown(link_html2, unsafe_allow_html=True)
+
+    # --- RESUME DOWNLOAD (also shown here for visibility) ---
+    resume_button()
 
 # -------------------------------------------------------------------------
 # FOOTER
