@@ -149,7 +149,7 @@ CONFIG = {
         },
         {
             "title": "MinuteMind",
-            "period": "2025",
+            "period": "2025 · Built during ML Developer Internship at Cognify Systems",
             "summary": (
                 "Turns a meeting recording into a full digest: Whisper transcription, "
                 "map-reduce summarization so long meetings never hit token limits, "
@@ -168,8 +168,13 @@ CONFIG = {
             "company": "Cognify Systems",
             "period": "January 2026 — Present",
             "bullets": [
-                "Built and shipped AI-powered web application features with integrated ML "
-                "functionality, collaborating with cross-functional engineering and product teams.",
+                "Built and shipped MinuteMind, an AI meeting-intelligence tool that transcribes "
+                "audio/video via the Groq Whisper API and auto-extracts action items, key "
+                "decisions, and open questions, collaborating with cross-functional engineering "
+                "and product teams.",
+                "Designed a map-reduce summarization pipeline so long meeting recordings could "
+                "be processed without hitting LLM token limits, and built a RAG-based chatbot "
+                "layer so users could query meeting transcripts directly.",
                 "Performed model training, data preprocessing, and feature engineering on "
                 "production datasets; owned the end-to-end handoff from Jupyter notebook to "
                 "deployed feature in live web applications.",
