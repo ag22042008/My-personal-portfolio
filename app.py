@@ -35,6 +35,7 @@ CONFIG = {
     "phone": "+91 7985152841",
     "resume_drive_url": "https://drive.google.com/file/d/1xGEF4Q5dwljepgGmCLXG1fkbF8s5OMh6/view?usp=sharing",
     "resume_file_id": "1xGEF4Q5dwljepgGmCLXG1fkbF8s5OMh6",
+    "avatar_url": "https://avatars.githubusercontent.com/u/214371210?v=4",
     "tagline": "I build multi-agent AI systems that research, reason, and remember.",
     "bio": (
         "I'm a machine learning developer focused on agentic AI systems and applied "
@@ -545,6 +546,17 @@ def hero_chart():
 col1, col2 = st.columns([1.3, 1], gap="large")
 
 with col1:
+    st.markdown(
+        f"""
+        <div style="width:104px; height:104px; border-radius:50%; padding:3px;
+                    background:linear-gradient(135deg, var(--a1), var(--a2), var(--a3), var(--a4));
+                    margin-bottom:16px;">
+            <img src="{CONFIG['avatar_url']}" style="width:100%; height:100%; border-radius:50%;
+                       object-fit:cover; display:block; border:3px solid var(--bg);" />
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
     st.markdown('<div class="eyebrow">In [1]: whoami()</div>', unsafe_allow_html=True)
     st.markdown(f'<div class="hero-name">{CONFIG["name"]}</div>', unsafe_allow_html=True)
     st.markdown(f'<div class="hero-tagline">{CONFIG["role"]}</div>', unsafe_allow_html=True)
