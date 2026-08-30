@@ -74,7 +74,7 @@ CONFIG = {
             "impact": "3 AI consoles, one unified app",
             "tags": ["LangChain", "ChromaDB", "Groq Whisper", "Gemini", "Streamlit"],
             "github": "https://github.com/ag22042008/AI-SudentAssistant",
-            "demo": "",
+            "demo": "https://ai-sudentassistant-cjeybzvunzppshmbucctkj.streamlit.app/",
         },
         {
             "title": "Multi-Agent Research Pipeline",
@@ -90,7 +90,7 @@ CONFIG = {
             "impact": "Auto-scores generated reports out of 10",
             "tags": ["LangChain", "LangGraph", "Tavily", "Mistral AI", "BeautifulSoup"],
             "github": "https://github.com/ag22042008/multi-agent-resarch-pipeline",
-            "demo": "",
+            "demo": "https://multi-agent-resarch-pipeline-6n4dy7ebqkrkkxnbbse7hw.streamlit.app/",
         },
         {
             "title": "Python ML Assistant",
@@ -135,7 +135,22 @@ CONFIG = {
             "impact": "Routes each query to the right document set automatically",
             "tags": ["LangGraph", "FAISS", "RAG", "Streamlit"],
             "github": "https://github.com/ag22042008/Course-mate-AI-College-Assistant",
-            "demo": "",
+            "demo": "https://course-mate-ai-college-assistant-qigo5th7xe6ubjrww9gw3v.streamlit.app/",
+        },
+        {
+            "title": "CourseMate-AI",
+            "period": "2025",
+            "summary": (
+                "The original retrieval-augmented PDF chatbot that answers questions "
+                "grounded only in an uploaded document: chunks and embeds the text with "
+                "Mistral, stores the vectors in Chroma, retrieves with MMR search for a "
+                "balance of relevance and diversity, and shows exactly which passages were "
+                "used for every answer."
+            ),
+            "impact": "Answers grounded only in the source PDF",
+            "tags": ["RAG", "ChromaDB", "Mistral AI", "Streamlit"],
+            "github": "https://github.com/ag22042008/Course-mate-AI",
+            "demo": "https://course-mate-ai-33fkzywiggeuztfz7hgdgh.streamlit.app/",
         },
         {
             "title": "Stock News Sentiment Analyzer",
@@ -193,7 +208,7 @@ CONFIG = {
             "impact": "Cites the source page for every claim",
             "tags": ["RAG", "ChromaDB", "Mistral AI", "Streamlit"],
             "github": "https://github.com/ag22042008/financial-web-analyzer",
-            "demo": "",
+            "demo": "https://financial-web-analyzer-hgaen5ufudneuc6pmacywz.streamlit.app/",
         },
         {
             "title": "MinuteMind",
@@ -629,7 +644,7 @@ with tab_projects:
         "<p style='color:var(--muted); font-size:0.88rem; margin-top:-4px;'>"
         "MinuteMind also lives here as a standalone repo — an earlier build of the "
         "console now folded into the Unified AI Student Assistant. CourseMate-AI's "
-        "College Assistant version below supersedes an earlier, simpler build.</p>",
+        "College Assistant version is the newer, more capable rebuild of the original.</p>",
         unsafe_allow_html=True,
     )
     cols = st.columns(2, gap="medium")
@@ -654,7 +669,7 @@ with tab_projects:
             """, unsafe_allow_html=True)
 
 with tab_experience:
-    st.markdown('<div class="eyebrow">In [14]: experience()</div>', unsafe_allow_html=True)
+    st.markdown('<div class="eyebrow">In [15]: experience()</div>', unsafe_allow_html=True)
     for exp in CONFIG["experience"]:
         bullets_html = "".join(f"<li style='margin-bottom:4px;'>{b}</li>" for b in exp["bullets"])
         st.markdown(f"""
@@ -671,7 +686,7 @@ with tab_experience:
         st.markdown(f"**{ed['degree']}** — {ed['school']} ({ed['period']})")
 
 with tab_certs:
-    st.markdown('<div class="eyebrow">In [15]: certifications()</div>', unsafe_allow_html=True)
+    st.markdown('<div class="eyebrow">In [16]: certifications()</div>', unsafe_allow_html=True)
     cert_cols = st.columns(len(CONFIG["certifications"]))
     for col, cert in zip(cert_cols, CONFIG["certifications"]):
         with col:
