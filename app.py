@@ -231,8 +231,8 @@ CONFIG = {
             "company": "Cognify Systems",
             "period": "January 2026 — Present",
             "bullets": [
-                "Built and shipped MinuteMind, an AI meeting-intelligence tool using the Groq Whisper API, saving 30+ minutes of manual review time per meeting across 15+ meetings processed during the internship.
-Designed a map-reduce summarization pipeline capable of processing meetings up to 3 hours long without hitting LLM token limits, and built a RAG-based chatbot layer letting users query meeting transcripts directly instead of re-watching recordings.",
+                "Built and shipped MinuteMind, an AI meeting-intelligence tool using the Groq Whisper API, saving 30+ minutes of manual review time per meeting across 15+ meetings processed during the internship",
+"Designed a map-reduce summarization pipeline capable of processing meetings up to 3 hours long without hitting LLM token limits, and built a RAG-based chatbot layer letting users query meeting transcripts directly instead of re-watching recordings.",
             ],
         },
     ],
