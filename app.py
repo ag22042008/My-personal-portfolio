@@ -231,11 +231,8 @@ CONFIG = {
             "company": "Cognify Systems",
             "period": "January 2026 — Present",
             "bullets": [
-                "Built and shipped AI-powered web application features with integrated ML "
-                "functionality, collaborating with cross-functional engineering and product teams.",
-                "Performed model training, data preprocessing, and feature engineering on "
-                "production datasets; owned the end-to-end handoff from Jupyter notebook to "
-                "deployed feature in live web applications.",
+                "Built and shipped MinuteMind, an AI meeting-intelligence tool using the Groq Whisper API, saving 30+ minutes of manual review time per meeting across 15+ meetings processed during the internship.
+Designed a map-reduce summarization pipeline capable of processing meetings up to 3 hours long without hitting LLM token limits, and built a RAG-based chatbot layer letting users query meeting transcripts directly instead of re-watching recordings.",
             ],
         },
     ],
