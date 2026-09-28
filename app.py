@@ -23,13 +23,7 @@ import streamlit as st
 import plotly.graph_objects as go
 import numpy as np
 from urllib.parse import quote
-
--------------------------------------------------------------------------
-
 #CONFIG — edit everything below to make this your own
-
--------------------------------------------------------------------------
-
 CONFIG = {
 "name": "Aditya Gupta",
 "role": "Machine Learning Developer · Agentic AI & NLP",
