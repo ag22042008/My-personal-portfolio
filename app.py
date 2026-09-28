@@ -26,7 +26,7 @@ from urllib.parse import quote
 
 -------------------------------------------------------------------------
 
-CONFIG — edit everything below to make this your own
+#CONFIG — edit everything below to make this your own
 
 -------------------------------------------------------------------------
 
